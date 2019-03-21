@@ -247,7 +247,10 @@ FFMPEG_COMMON_ARGS = \
 	--enable-swresample \
 	--enable-swscale \
 	--enable-avfilter \
-	--disable-network \
+	--enable-network \
+	--enable-protocol=pipe \
+	--enable-protocol=rtmp \
+	--enable-muxer=flv \
 	--disable-d3d11va \
 	--disable-dxva2 \
 	--disable-vaapi \
@@ -310,6 +313,7 @@ build/ffmpeg-mp4/ffmpeg.bc: $(MP4_SHARED_DEPS)
 # for simple tests and 32M tends to run slower than 64M.
 EMCC_COMMON_ARGS = \
 	--closure 1 \
+	-s "BINARYEN_TRAP_MODE='clamp'" \
 	-s TOTAL_MEMORY=1073741824 \
 	-s ALLOW_MEMORY_GROWTH=1 \
 	-s AGGRESSIVE_VARIABLE_ELIMINATION=1 \

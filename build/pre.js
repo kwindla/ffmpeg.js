@@ -1,4 +1,5 @@
 var __ffmpegjs_utf8ToStr;
+var initialStackTop;
 
 function __ffmpegjs(__ffmpegjs_opts) {
     __ffmpegjs_utf8ToStr = UTF8ArrayToString;
